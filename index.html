@@ -41,7 +41,7 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i> <span class="light">Open Speakers</span> Database
+                    <i class="fa fa-address-card"></i> <span class="light">Open Speakers</span> Database
                 </a>
             </div>
 
@@ -92,82 +92,80 @@
             <div class="col-lg-10 col-lg-offset-1">
                 <h2>Find a Speaker For Your Open Event</h2>
                 <p>The Open Speakers Database is a crowd-sourced method for finding experts in your region on Open Access, Open Education and Open Data.</p> <p>When possible, clicking on the name will allow you to email the speaker. Please be patient — the database will appear below but takes some time to load.  Note: this page is <i>not</i> meant to be viewed on mobile. <p>
-                  <input type="text" class="form-control" id="country" placeholder="Search Country" value="" onkeydown="myFunc()">
+                  <input type="text" id="country" placeholder="Country" value="" onkeydown="myFunc()">
 
-  <table width=100%>
-    <thead>
-      <th>Name</th>
-      <th>Country</h>
-      <th> Topic(s) </th>
-      <th>Affiliation</th>
-      <th>Twitter</th>
-    </thead>
-    <tbody sheetsu="https://sheetsu.com/apis/v1.0/525e59f6cfa8" sheetsu-limit="200" sheetsu-ignore-case="true">
-      <tr>
-        <td><a href="mailto:{{Email}}">{{Name}}</a></td>
-        <td>{{country}}</td>
-        <td>{{IssueArea}}</td>
-        <td>{{Affiliation}}</td>
-        <td><a href={{TwitterURL}}>{{TwitterHandle}}</a></td>
-      </tr>
-    </tbody>
-  </table>
+                <table width=100%>
+                  <thead>
+                    <th>Name</th>
+                    <th>Country</h>
+                    <th> Topic(s) </th>
+                    <th>Affiliation</th>
+                    <th>Twitter</th>
+                  </thead>
+                  <tbody sheetsu="https://sheetsu.com/apis/v1.0/4d70e24546d8" sheetsu-limit="20" sheetsu-ignore-case="true">
+                    <tr>
+                      <td><a href="mailto:{{Email To}}">{{Full Name (First, Last)}}</a></td>
+                      <td>{{Country of Residence}}</td>
+                      <td>{{Issue Areas}}</td>
+                      <td>{{Affiliation}}</td>
+                      <td><a href={{TwitterURL}}>{{Twitter Handle}}</a></td>
+                    </tr>
+                  </tbody>
+                </table>
 
-  <script src="//load.sheetsu.com"></script>
+                <script src="//load.sheetsu.com"></script>
 
-  <script type="text/javascript">
-    var myFunc = debounce(function () {
-      countryValue = contryValue();
-      addSearchValue({ Country: "*" + countryValue + "*" });
-      resetTableBody();
-      triggerNewSearch();
+                <script type="text/javascript">
+                  var myFunc = debounce(function () {
+                    countryValue = contryValue();
+                    addSearchValue({ Country: "*" + countryValue + "*" });
+                    resetTableBody();
+                    triggerNewSearch();
 
-    }, 400);
-
-
-    function contryValue() {
-      return document.getElementById("country").value;
-    }
-
-    function tableElement() {
-      return document.querySelector("tbody[sheetsu]");
-    }
-
-    function resetTableBody() {
-      document.querySelector("tbody[sheetsu]").innerHTML = tableRow();
-    }
-
-    function addSearchValue(searchValue) {
-      tableElement().setAttribute("sheetsu-search", JSON.stringify(searchValue));
-    }
-
-    function triggerNewSearch() {
-      var element = document.querySelector("tbody[sheetsu]");
-      (new ChangeGetElement(element)).call();
-    }
-
-    function tableRow() {
-      return '<tr><td><a href="mailto:{{Email}}">{{Name}}</a></td><td>{{country}}</td><td>{{IssueArea}}</td><td>{{Affiliation}}</td><td><a href={{TwitterURL}}>{{TwitterHandle}}</a></td></tr>';
-    }
-
-    function debounce(func, wait, immediate) {
-      var timeout;
-      return function() {
-        var context = this, args = arguments;
-        var later = function() {
-          timeout = null;
-          if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-      };
-    };
-
-  </script>
+                  }, 400);
 
 
+                  function contryValue() {
+                    return document.getElementById("country").value;
+                  }
+
+                  function tableElement() {
+                    return document.querySelector("tbody[sheetsu]");
+                  }
+
+                  function resetTableBody() {
+                    document.querySelector("tbody[sheetsu]").innerHTML = tableRow();
+                  }
+
+                  function addSearchValue(searchValue) {
+                    tableElement().setAttribute("sheetsu-search", JSON.stringify(searchValue));
+                  }
+
+                  function triggerNewSearch() {
+                    var element = document.querySelector("tbody[sheetsu]");
+                    (new ChangeGetElement(element)).call();
+                  }
+
+                  function tableRow() {
+                    return '<tr><td><a href="mailto:{{Email To}}">{{Full Name (First, Last)}}</a></td><td>{{country}}</td><td>{{Issue Areas}}</td><td>{{Affiliation}}</td><td><a href={{TwitterURL}}>{{Twitter Handle}}</a></td></tr>';
+                  }
+
+                  function debounce(func, wait, immediate) {
+                    var timeout;
+                    return function() {
+                      var context = this, args = arguments;
+                      var later = function() {
+                        timeout = null;
+                        if (!immediate) func.apply(context, args);
+                      };
+                      var callNow = immediate && !timeout;
+                      clearTimeout(timeout);
+                      timeout = setTimeout(later, wait);
+                      if (callNow) func.apply(context, args);
+                    };
+                  };
+
+                </script>
             </div>
         </div>
     </section>
