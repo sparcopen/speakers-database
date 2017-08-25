@@ -9,6 +9,9 @@ Yes! Please do. If you know someone in your country, region, or institution who 
 ## Can I edit an existing entry? 
 To update an entry in the Open Research and Education Speakers database please comment by the fields you would like edited with a correction in this [public spreadsheet.](https://docs.google.com/spreadsheets/d/1AoxVH_4ijjw7ESc3xu1Sc6vPTCpc3Eyr_IaIo8rZ5o4/edit?usp=sharing).
 
+## I want my information removed from the database. How? 
+To request a take-down, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSdSgv72Fthzqypq701EeVMbaObz_yLQUm4v_6kqWl5XqqAOOQ/viewform?usp=sf_link). We'll get your entry removed as soon as possible (within a week at most—as we are a small team!) 
+
 ## Get in touch!
 The Open Speakers Database is put together by the Right to Research Coalition and OpenCon.
 
